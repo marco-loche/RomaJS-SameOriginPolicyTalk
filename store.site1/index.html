@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--store.site1.local-->
 <html>
 <head>
     <title>Store Site 1</title>
@@ -7,7 +8,7 @@
     function readInfo() {
         alert('Accessing from  '+location.host +' to a sensitive value ' + parent.sensitiveValue);
     }
-    document.domain = 'site1.local';
+    document.domain = '.local';
 </script>
 <body>
     <h1>Store Site 1</h1>
