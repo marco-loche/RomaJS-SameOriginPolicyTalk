@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>WWW Site 1 - Unrelaxed</title>
+    <title>WWW Site 1 </title>
     <script>
         var sensitiveValue = "SENSITIVE VALUE!";
+
+        function receiver(event) {
+            if (event.origin == 'http://store.site1.local:3000') {
+                if (event.data == 'Give me sensitive value') {
+                    event.source.postMessage(sensitiveValue, event.origin);
+                    alert(sensitiveValue);
+                }
+                else {
+                    alert(event.data);
+                }
+            }
+        }
+        window.addEventListener('message', receiver);
+
     </script>
 </head>
 <body>
 <h1>WWW Site 1</h1>
-<p>This page demonstrate normal Same Origin Policy</p>
-<iframe src="http://store.site1.local:3000/unrelaxed.html" name="store" style="height:400px"></iframe>
+<p>This page demonstrate the usage of Web Messaging or cross-document messaging</p>
+<iframe src="http://store.site1.local:3000/relaxed.message.html" name="store" style="height:400px"></iframe>
 
 </body>
 </html>

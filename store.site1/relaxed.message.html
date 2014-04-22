@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!--store.site1.local-->
+<html>
+<head>
+    <title>Store Site 1 - Relaxed with cross-document messagingn</title>
+</head>
+<script>
+    function readInfo() {
+        var o = parent;
+        o.window.postMessage('Give me sensitive value', 'http://www.site1.local:3000');
+    }
+
+</script>
+<body>
+    <h1>Store Site 1</h1>
+    <input type="button" value="Read info" onclick="readInfo()">
+</body>
+</html>
