@@ -1,0 +1,9 @@
+{
+  "name": "cors-talk",
+  "description": "Relaxing Same Orgini Policy - RomaJS tallk on CORS and SOP",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x"
+  }
+}

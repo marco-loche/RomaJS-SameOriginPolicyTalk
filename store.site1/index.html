@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Store Site 1</title>
+</head>
+<script>
+    function readInfo() {
+        alert('Accessing from  '+location.host +' to a sensitive value ' + parent.sensitiveValue);
+    }
+    document.domain = 'site1.local';
+</script>
+<body>
+    <h1>Store Site 1</h1>
+    <input type="button" value="Read info" onclick="readInfo()">
+</body>
+</html>
