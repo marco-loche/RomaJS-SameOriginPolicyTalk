@@ -8,10 +8,16 @@
     function readInfo() {
         alert('Accessing from  '+location.host +' to a sensitive value ' + parent.sensitiveValue);
     }
-    document.domain = '.local';
+
+    function changeDomain() {
+
+       top.document.domain = "www.site1.local";
+    }
+    document.domain = 'site1.local';
 </script>
 <body>
     <h1>Store Site 1</h1>
     <input type="button" value="Read info" onclick="readInfo()">
+    <input type="button" value="Change Domain" onclick="changeDomain()">
 </body>
 </html>
