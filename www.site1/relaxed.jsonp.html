@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WWW Site 1 - Relaxed with jsonp</title>
+    <script>
+        var sensitiveValue = "SENSITIVE VALUE!";
+        document.domain = 'site1.local';
+    </script>
+</head>
+<body>
+<h1>WWW Site 1</h1>
+<p>This page demonstrate the usage of JSONP</p>
+<p>Open the inspector to see what's going on!</p>
+
+<script>
+    function dataHanlder(jsonpData){
+        var text = '';
+        var len = jsonpData.length;
+        for(var i=0;i<len;i++){
+            twitterEntry = dataWeGotViaJsonp[i];
+            text += '<p><img src = "' + twitterEntry.user.profile_image_url_https +'"/>' + twitterEntry['text'] + '</p>'
+        }
+        document.getElementById('twitterFeed').innerHTML = text;
+    }
+</script>
+<script type="text/javascript" src="http://api.site2.local/messages&callback=dataHanlder"></script>
+
+
+</body>
+</html>

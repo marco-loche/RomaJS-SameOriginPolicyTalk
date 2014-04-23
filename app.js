@@ -6,7 +6,7 @@ var main, wwwSite1, storeSite1, site2;
 main = express();
 wwwSite1 = express();
 storeSite1 = express();
-site2 = express();
+apiSite2 = express();
 
 
 main.set('title', 'Cassys Client Development Environment');
@@ -46,20 +46,19 @@ wwwSite1.use(express.static('./www.site1'));
 storeSite1.set('title', 'storeSite1');
 storeSite1.use(express.static('./store.site1'));
 
-site2.set('title', 'Site2');
-site2.use(express.static('./site2'));
+apiSite2.set('title', 'Site2');
+apiSite2.use(express.static('./site2'));
 
 
 
 main.use(express.vhost('www.site1.local', wwwSite1)); // Serves all subdomains via Redirect app
 main.use(express.vhost('store.site1.local', storeSite1)); // Serves all subdomains via Redirect app
-main.use(express.vhost('www.site2.local', site2)); // Serves top level domain via Main site2 app
+main.use(express.vhost('api.site2.local', site2)); // Serves top level domain via Main site2 app
 main.listen(3000, function () {
   console.log('===========');
-  console.log('');
+  console.log('RomaJS 23/04/2014 - Relaxing the Same Origin Policy ');
+  console.log('Marco Loche ( @netamorfose )');
   console.log('===========');
   console.log('Servers are running');
-  console.log('Site 1 www accessible at http://www.site1.local:3000');
-  console.log('Site 1 store accessible at http://store.site1.local:3000');
-  console.log('Site 2 www accessible at http://www.site2.local:3000');
+  console.log('Start here http://www.site1.local:3000');
 });

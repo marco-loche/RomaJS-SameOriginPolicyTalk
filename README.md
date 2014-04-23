@@ -18,7 +18,7 @@ In *NIX system ```/etc/hosts```
 # Host
 127.0.0.1 www.site1.local
 127.0.0.1 store.site1.local
-127.0.0.1 www.site2.local
+127.0.0.1 api.site2.local
 ```
 ## Unrelaxed SOP
 
