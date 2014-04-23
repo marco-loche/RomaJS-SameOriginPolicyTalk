@@ -1,6 +1,8 @@
-var express, fs;
+var express, fs, cors;
 express = require('express');
 fs = require('fs');
+
+cors = require('cors');
 
 var main, wwwSite1, storeSite1, apiSite2;
 main = express();
@@ -77,9 +79,48 @@ var messages = [
   }
 ];
 
+var corsOptions = {
+  origin: 'http://www.site1.local:3000',
+  method: 'GET,PUT,POST',
+  headers: 'X-Requested-With, Content-Type, X-Cassys-Auth'
+};
+
 apiSite2.set('title', 'Site2');
 apiSite2.get('/messages', function (req, res, next) {
   res.jsonp(messages);
+});
+
+var orders = [
+  {
+    'product' : 'Star Wars Blue Ray',
+    'amount' : 100
+  }
+];
+
+
+apiSite2.options('/orders', cors(corsOptions));
+apiSite2.get('/orders', cors(corsOptions),function (req, res, next) {
+
+  res.send(200,
+    JSON.stringify(orders )
+  );
+});
+
+apiSite2.options('/orders', cors(corsOptions));
+apiSite2.post('/orders', cors(corsOptions),function (req, res, next) {
+  console.log(req.body);
+  orders.push(
+    {
+      'product' : req.body.product,
+      'amount' : req.body.amount
+    }
+  );
+
+  var orderNb = orders.length;
+  res.send(201,
+    {
+      id: orderNb
+    });
 });
 
 apiSite2.use(logErrors);
