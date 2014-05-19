@@ -1,26 +1,24 @@
-# This is are sources used in talk 'Relaxing the Same Origin Policy'
+# Sources used in the talk 'Relaxing the Same Origin Policy'
 
+I gave this talk to the RomaJS community in april 2014.
+Slides available at https://speakerdeck.com/marcoloche/relaxing-the-same-origin-policy
 ## Install
 ```
 npm install
 ```
-
-## Launch
-```
-node app
-```
-
 ## Configure your hosts
 Add following lines to your hosts file
-In *NIX system ```/etc/hosts```
+In *NIX system ```/etc/hosts``` :
 
 ```
-# Host
 127.0.0.1 www.site1.local
 127.0.0.1 store.site1.local
 127.0.0.1 api.site2.local
 ```
-## Unrelaxed SOP
+## Launch
+```
+node app
+```
 
 Open in your browser and go to the index page
 
@@ -28,7 +26,7 @@ Open in your browser and go to the index page
 http://www.site1.local:3000/
 ```
 
-Using your broweser take a look at the console what's go under the hood and pay particular attention to the HTTP Headers of requests and responses.
+Using the console of your favourite broweser take a look what's going on under the hood and pay particular attention to the HTTP Headers of requests and responses.
 
 ### Same Origin Policy in action
 ```
