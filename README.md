@@ -22,10 +22,36 @@ In *NIX system ```/etc/hosts```
 ```
 ## Unrelaxed SOP
 
-Open in your browser
+Open in your browser and go to the index page
 
-### Unrelaxed normal Same Origin Policy
-http://www.site.local/unrelaxed.html
+```
+http://www.site1.local:3000/
+```
 
-### Relaxed by usage of ```document.domain```
-http://www.site.local/relaxed.domain.html
+Using your broweser take a look at the console what's go under the hood and pay particular attention to the HTTP Headers of requests and responses.
+
+### Same Origin Policy in action
+```
+http://www.site1.local:3000/unrelaxed.html
+```
+
+### ```document.domain``` in action
+```
+http://www.site1.local:3000/relaxed.domain.html
+```
+
+### ```postMessage``` a.k.aa Cross-Document messaging
+```
+http://www.site1.local:3000/relaxed.message.html
+```
+
+### JSONP
+```
+http://www.site1.local:3000/relaxed.jsonp.html
+```
+
+### CORS
+```
+http://www.site1.local:3000/relaxed.cors.html
+```
+
